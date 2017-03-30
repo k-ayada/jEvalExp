@@ -8,6 +8,7 @@ import java.util.Iterator;
 import java.util.Stack;
 import java.util.TreeMap;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import pub.ayada.genutils.string.StringUtils;
 import pub.ayada.dataStructures.chararray.CharArr;
@@ -58,16 +59,8 @@ public class ExpTree implements Cloneable, Serializable {
 		//return (this.root == null)?  false :  true;
 	}
 	
-	public String[] getVars(){
-		
-		String[] vars =  new String[this.variables.size()];
-		int i = -1;
-		
-		for ( String key : this.variables.keySet()) {
-			vars[++i] = key;
-		}
-		return vars;
-		
+	public Set<String> getVars(){		
+		return this.variables.keySet();		
 	}
 	
 	public String printVars() {
