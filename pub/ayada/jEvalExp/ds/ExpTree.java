@@ -58,7 +58,19 @@ public class ExpTree implements Cloneable, Serializable {
 		//return (this.root == null)?  false :  true;
 	}
 	
-	public String getVariableList() {
+	public String[] getVars(){
+		
+		String[] vars =  new String[this.variables.size()];
+		int i = -1;
+		
+		for ( String key : this.variables.keySet()) {
+			vars[++i] = key;
+		}
+		return vars;
+		
+	}
+	
+	public String printVars() {
 		Iterator<Entry<String, Token<?>>> it = this.variables.entrySet().iterator();
 		StringBuilder sb = new StringBuilder("\n\t{");
 		while (it.hasNext()) {
@@ -175,7 +187,7 @@ public class ExpTree implements Cloneable, Serializable {
 			break;
 		default:
 			throw new RuntimeException(
-					"Failed to set the value of variable '$" + VariableName + "' in " + getVariableList());
+					"Failed to set the value of variable '$" + VariableName + "' in " + printVars());
 		}
 
 	}
