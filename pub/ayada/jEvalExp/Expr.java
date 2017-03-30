@@ -1,6 +1,7 @@
 package pub.ayada.jEvalExp;
 
 import java.text.ParseException;
+import java.util.Set;
 
 import pub.ayada.genutils.log.Log;
 
@@ -42,8 +43,8 @@ public class Expr {
 		this.expTree.setVarValue(VariableName, Value);
 	}
 	
-	public void getVars() {
-		this.expTree.printVars();
+	public Set<String> getVars() {
+		return this.expTree.getVars();
 	}
 	
 
