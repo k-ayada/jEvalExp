@@ -41,6 +41,11 @@ public class Expr {
 	public void setValue(String VariableName, Object Value) {
 		this.expTree.setVarValue(VariableName, Value);
 	}
+	
+	public void getVars() {
+		this.expTree.printVars();
+	}
+	
 
 	public ExpTree getExpInstance() throws CloneNotSupportedException {
 		  return this.expTree.clone();
@@ -53,7 +58,7 @@ public class Expr {
 	public Object resolve() throws CloneNotSupportedException, ClassNotFoundException, ParseException {	    
 		this.calcCount = 0;
 		if (this.debug) {
-			Log.print("Varibles and values:- " + this.expTree.getVariableList());
+			Log.print("Varibles and values:- " + this.expTree.printVars());
 			this.expTree.reportTtreeStructure();
 		}		
 		Node res = applyOper(this.expTree.getRoot());
@@ -71,7 +76,7 @@ public class Expr {
 		ExpTree e = getExpInstance();
 		this.calcCount = 0;
 		if (this.debug) {
-			Log.print("Varibles and values:- " + e.getVariableList());
+			Log.print("Varibles and values:- " + e.printVars());
 			e.reportTtreeStructure();
 		}
 		Node res = applyOper(e.getRoot());
